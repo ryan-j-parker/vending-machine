@@ -1,9 +1,15 @@
 const process = require('process');
-const { parseArgs } = require('util');
+const { parseArgs } = require('./parse-args.js');
 
+console.log('argv', process.argv);
 // const { itemCost, payment } = parseArgs();
 
 // console.log(JSON.stringify(parseInt(itemCost)), payment);
+
+// const itemCost = process.argv[2];  
+// const payment = process.argv[3];  
+
+const { itemCost, payment } = parseArgs(process.argv);
 
 const vendingMachine = (itemCost, payment) => {
   // remove decimals from item and money for easier calculation
@@ -30,6 +36,11 @@ const vendingMachine = (itemCost, payment) => {
 
   if (payment == null) {
     console.error('--payment must be entered');
+    process.exit(1);
+  }
+
+  if (itemCost > payment) {
+    console.log('--payment amount is insufficient for item');
     process.exit(1);
   }
   
@@ -69,5 +80,7 @@ const vendingMachine = (itemCost, payment) => {
   console.log(` --Pennies: ${coins.pennies.toString()}`);
   return ''; 
 };
-console.log(vendingMachine(2.17, 4.0));
+
+// console.log(vendingMachine(2.17, 4.0));
+console.log(vendingMachine(itemCost, payment));
 // vendingMachine(itemCost, payment);

@@ -1,13 +1,13 @@
 const process = require('process');
-const { parseArgs } = require('util');
 
 console.log('argv', process.argv);
-const parseArgs = () => {
+
+const parseArgs = (argv) => {
   let itemCostInput = null;
   let paymentInput = null;
 
-  // terminal:::
-  // node index.js --item-cost 2 --payment 3
+  // in terminal:::
+  // > node index.js --item-cost {cost in $} --payment {cost in $}
 
   for (let i = 0; i < process.argv.length; i++) {
     const arg = process.argv[i];
@@ -26,7 +26,7 @@ const parseArgs = () => {
     process.exit(1);
   }
 
-  const itemCost = Number(itemCostInput) * 100;
+  const itemCost = Number(itemCostInput);
   if (isNaN(itemCost)) {
     console.log('--item-cost must be a number');
     process.exit(1);
@@ -37,7 +37,7 @@ const parseArgs = () => {
     process.exit(1);
   }
 
-  const payment = Number(paymentInput) * 100;
+  const payment = Number(paymentInput);
   if (isNaN(payment)) {
     console.log('--item-cost must be a number');
     process.exit(1);
@@ -47,10 +47,6 @@ const parseArgs = () => {
     payment,
   }
 }
-
-const { itemCost, payment } = parseArgs();
-
-console.log(JSON.stringify(parseInt(itemCostInput)), paymentInput);
 
 module.exports = {
   parseArgs,

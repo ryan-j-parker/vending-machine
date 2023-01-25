@@ -1,4 +1,4 @@
-const { describe, it } = require('@jest/globals');
+const { describe, it, expect } = require('@jest/globals');
 const { parseArgs } = require('./parse-args.js');
 
 describe('parseArgs', () => {
