@@ -6,7 +6,7 @@ const parseArgs = (argv) => {
   let itemCostInput = null;
   let paymentInput = null;
 
-  // in terminal:::
+  // in terminal, type the following command to run the program:::
   // > node index.js --item-cost {cost in $} --payment {cost in $}
 
   for (let i = 0; i < process.argv.length; i++) {

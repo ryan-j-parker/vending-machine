@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "unit-test": "jest"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,8 @@
   },
   "homepage": "https://github.com/ryan-j-parker/vending-machine#readme",
   "devDependencies": {
-    "jest": "^29.4.0"
+    "jest": "^29.4.0",
+    "jest-environment-jsdom": "29.3.1",
+    "jsdom": "21.0.0"
   }
 }
