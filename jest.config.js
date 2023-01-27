@@ -1,5 +1,5 @@
 export default {
-    preset: 'js-test',
+    // preset: 'js-test',
     testEnvironment: 'node',
     moduleFileExtensions: ['js', 'jsx'],
 }
